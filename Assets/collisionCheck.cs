@@ -6,6 +6,8 @@ public class collisionCheck : MonoBehaviour
 {
     //public ParticleSystem explosion;
     public static bool nodeHit = false;
+    //public string collisionTag;
+    
     // Start is called before the first frame update
     void Start()
     {

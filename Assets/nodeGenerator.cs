@@ -48,6 +48,7 @@ public class nodeGenerator : MonoBehaviour
             nz[i] = (float)(Math.Cos(radian)) * near;
             GameObject obj = Instantiate(ori[i], new Vector3(nx[i], 0.5f, nz[i]), ori[i].transform.rotation);
             obj.transform.localScale += new Vector3(0, 0, 0.2f);
+            obj.tag = "dest";
 
             fx[i] = (float)(-Math.Sin(radian)) * far;
             fz[i] = (float)(Math.Cos(radian)) * far;
@@ -66,7 +67,8 @@ public class nodeGenerator : MonoBehaviour
         {
             int drumIndex = notes[numOfNote].Item1 - 1;
             GameObject obj = Instantiate(ori[drumIndex], new Vector3(fx[drumIndex], farH, fz[drumIndex]), ori[drumIndex].transform.rotation);
-
+            obj.tag = "note";
+    
             Rigidbody noteRb = obj.GetComponent<Rigidbody>();
             noteRb.velocity = new Vector3(nx[drumIndex], 0.6f, nz[drumIndex]) * -level;
 

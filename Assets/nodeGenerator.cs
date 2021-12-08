@@ -39,7 +39,7 @@ public class nodeGenerator : MonoBehaviour
             string[] note = line.Split();
             for (int i = 0; i < note.Length; i++)
             {
-                notes.Add(new Tuple<int, float>(index, float.Parse(note[i]) * 0.284f));
+                notes.Add(new Tuple<int, float>(index, float.Parse(note[i]) * 0.284f + 0.4f));
             }
             index++;
         }

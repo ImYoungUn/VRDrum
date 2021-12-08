@@ -9,16 +9,34 @@ public class MainController : MonoBehaviour
     public TextMesh scoreText;
     public double TimeElapse = 0;
 
-    public GameObject[] particle = new GameObject[6];
-    private ParticleSystem[] effect = new ParticleSystem[6];
+    public GameObject[] light = new GameObject[6];
+    public GameObject[] star = new GameObject[6];
+    public GameObject[] smoke = new GameObject[2];
+
+
+    private ParticleSystem[] lightEffect = new ParticleSystem[6];
+    private ParticleSystem[] starEffect = new ParticleSystem[6];
+    private ParticleSystem[] smokeEffect = new ParticleSystem[2];
+
+    private bool effectTrigger = false;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        for(int i =0; i < 6; i++)
+        for(int i = 0; i < 6; i++)
         {
-            effect[i] = particle[i].GetComponent<ParticleSystem>();
-            effect[i].Stop();
+            lightEffect[i] = light[i].GetComponent<ParticleSystem>();
+            starEffect[i] = star[i].GetComponent<ParticleSystem>();
+            
+            lightEffect[i].Stop();
+            starEffect[i].Stop();
+            
+        }
+        for(int i = 0; i < 2; i++)
+        {
+            smokeEffect[i] = smoke[i].GetComponent<ParticleSystem>();
+            smokeEffect[i].Stop();
         }
         //scoreText.Text = "fffffff";
     }
@@ -29,12 +47,18 @@ public class MainController : MonoBehaviour
         scoreText.text = score.ToString();
         TimeElapse += Time.deltaTime;
 
-        if(TimeElapse > 6)
+        if(TimeElapse > 47.0f && !effectTrigger)
         {
             for(int i = 0; i < 6; i++)
             {
-                effect[i].Play();
+                lightEffect[i].Play();
+                starEffect[i].Play();
             }
+            for(int i =0; i < 2; i++)
+            {
+                smokeEffect[i].Play();
+            }
+            effectTrigger = true;
         }
     }
 }

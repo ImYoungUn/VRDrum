@@ -8,6 +8,7 @@ TagManager:
   - node
   - dest
   - note
+  - start
   layers:
   - Default
   - TransparentFX

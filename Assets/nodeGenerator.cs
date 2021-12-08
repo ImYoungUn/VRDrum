@@ -7,6 +7,7 @@ using System;
 public class nodeGenerator : MonoBehaviour
 {
     const int NUMOFDRUM = 5;
+    
 
     private List<Tuple<int, float>> notes = new List<Tuple<int, float>>();
     private float timeDiff;
@@ -16,15 +17,21 @@ public class nodeGenerator : MonoBehaviour
     private float[] nz = new float[5];
     private float[] fx = new float[5];
     private float[] fz = new float[5];
+    private AudioSource bgm;
+
 
     public GameObject[] ori = new GameObject[5];
     public float near;
     public float far;
     public float farH;
     public int level;
+    public GameObject Player;
+
 
     void Start()
     {
+        bgm = Player.GetComponent<AudioSource>();
+
         int index = 1;
         string filePath = Path.Combine(Application.dataPath, "test.txt");
         foreach (string line in System.IO.File.ReadLines(filePath))
@@ -32,7 +39,7 @@ public class nodeGenerator : MonoBehaviour
             string[] note = line.Split();
             for (int i = 0; i < note.Length; i++)
             {
-                notes.Add(new Tuple<int, float>(index, float.Parse(note[i])));
+                notes.Add(new Tuple<int, float>(index, float.Parse(note[i]) * 0.284f));
             }
             index++;
         }
@@ -53,11 +60,13 @@ public class nodeGenerator : MonoBehaviour
             fx[i] = (float)(-Math.Sin(radian)) * far;
             fz[i] = (float)(Math.Cos(radian)) * far;
             obj = Instantiate(ori[i], new Vector3(fx[i], farH, fz[i]), ori[i].transform.rotation);
+            obj.tag = "start";
         }
 
         timeDiff = 0.0f;
         numOfNote = 0;
         isFinish = false;
+
     }
 
     void Update()

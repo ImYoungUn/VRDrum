@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 459111357540232114}
   - component: {fileID: 2437019488392731022}
   - component: {fileID: -5799968372092701773}
-  - component: {fileID: -5400462991429120184}
+  - component: {fileID: -5594856007491364667}
   m_Layer: 0
   m_Name: ori2
   m_TagString: Untagged
@@ -93,7 +93,7 @@ BoxCollider:
   m_GameObject: {fileID: 6434582735864052583}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -113,7 +113,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &-5400462991429120184
+--- !u!114 &-5594856007491364667
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,6 +122,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6434582735864052583}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1954f52dcee19154ab1338bf5a760064, type: 3}
+  m_Script: {fileID: 11500000, guid: a29462990536ab545815cfb9745fdae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particleEffect: {fileID: 6893039151574458642, guid: 3a4895bc72c6a454e9219de2b213a05b, type: 3}
